@@ -1385,7 +1385,7 @@ class PostgreSQLDatabase(username: String, var password: String) extends Databas
   }
 
   def updateEntityOnlyNewEntriesStickToTop(idIn: Long, newEntriesStickToTop: Boolean) {
-    dbAction("update Entity set (new_entries_stick_to_top) = ('" + newEntriesStickToTop + "') where id=" + idIn)
+    dbAction("update Entity set (new_entries_stick_to_top) = ROW('" + newEntriesStickToTop + "') where id=" + idIn)
   }
 
   def updateClassAndTemplateEntityName(classIdIn: Long, name: String): Long = {
